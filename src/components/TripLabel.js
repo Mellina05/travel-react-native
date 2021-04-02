@@ -43,7 +43,7 @@ const TripLabel = (props) => {
             <TouchableOpacity style={styles.tripLabel} onPress={()=>console.log(element.name)}>
                 <ImageBackground source={element.image} style={styles.tripLabelImage} imageStyle={{borderTopLeftRadius: 12, borderTopRightRadius: 12}}>
                     {
-                        publicTrip ? 
+                        !publicTrip ? 
                         null :
                         [
                             <View style={{flexDirection: "row", paddingLeft: 10, paddingTop: 128}}>
@@ -56,7 +56,7 @@ const TripLabel = (props) => {
                 </ImageBackground>
                 <Text style={styles.tripLabelName}>{element.name}</Text>
                 {
-                    publicTrip ? 
+                    !publicTrip ? 
                     <Text style={styles.tripLabelText}>{element.location + " • " + element.startDate + " - " + element.endDate}</Text>
                     :
                     <Text style={styles.tripLabelText}>{element.location + " • " + element.duration + " Days • " + element.members + " Travellers"}</Text>
