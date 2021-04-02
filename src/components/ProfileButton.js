@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-native';
-import { View, Text, Image, StyleSheet} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     text: {
@@ -12,19 +12,46 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: "row",
+        justifyContent: "space-between",
         height: 51,
-        paddingLeft: 18,
+        paddingLeft: 24,
+        paddingRight: 24,
         paddingTop: 18
     }
 });
+
+const renderIcon = (buttonKey) => {
+    let iconName = "";
+    let iconColor = "";
+    if (buttonKey === "savedTrips") {
+        iconName = "star";
+        iconColor = "#F1D334";
+    } else if (buttonKey === "joinedTrips") {
+        iconName = "users";
+        iconColor = "#AA3640";
+    } else if (buttonKey === "publishedTrips") {
+        iconName = "globe";
+        iconColor = "#3E90DB";
+    } else {
+        iconName = "wrench";
+        iconColor = "#AAAAAA";
+    }
+    return <FontAwesome name={iconName} size={22} color={iconColor} />
+};
 
 const ProfileButton = (props) => {
     const data = props.data;
     return (
         <View key={data.key} style={styles.buttonContainer}>
-            <Image source={data.icon}/>
-            <Text style={styles.text}>{data.name}</Text>
-            <Button title="Click"/>   
+            <View style={{flexDirection: "row"}}>
+                {renderIcon(data.key)}
+                <Text style={styles.text}>{data.name}</Text>
+            </View>      
+            <TouchableOpacity 
+                style={styles.plusButton}
+                onPress={()=>console.log(data.name)}>
+                <FontAwesome name={"chevron-right"} size={22} color={"#777777"} />
+            </TouchableOpacity>
         </View>
     );
 }

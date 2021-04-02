@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import ProfileButton from '../components/ProfileButton';
 import commonStyles from "./styles/CommonStyles";
 
@@ -43,8 +44,8 @@ const ProfilePage = () => {
             <View style={commonStyles.titleContainer}>
                 <Text style={commonStyles.title}>Profile</Text>
                 <TouchableOpacity 
-                    onPress={()=>console.log('Pressed!')}>
-                    <Text>Press Here</Text>
+                    onPress={()=>console.log('Edit profile')}>
+                    <FontAwesome name={"edit"} size={25} />
                 </TouchableOpacity>
             </View>
             <View style={{paddingBottom: 24, backgroundColor: "#FFFFFF", borderBottomColor: "#EAEAEA"}}>
