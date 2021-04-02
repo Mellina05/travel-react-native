@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text} from 'react-native';
+import SearchBarComponent from "../components/SearchBarComponent";
 import commonStyles from "./styles/CommonStyles";
 
 /**
@@ -11,8 +12,9 @@ const ChatPage = () => {
     return (
         <View style={commonStyles.page}>
             <View style={commonStyles.titleContainer}>
-                <Text style={commonStyles.title}>Chat</Text>
+                <Text style={commonStyles.title}>Chats</Text>
             </View>
+            <SearchBarComponent ></SearchBarComponent>
         </View>
     );
 }

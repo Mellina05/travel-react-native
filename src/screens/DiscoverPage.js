@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text} from 'react-native';
 import TripLabel from "../components/TripLabel";
+import SearchBarComponent from "../components/SearchBarComponent";
 import commonStyles from "./styles/CommonStyles";
 
 /**
@@ -18,6 +19,7 @@ const DiscoverPage = () => {
             <View style={commonStyles.titleContainer}>
                 <Text style={commonStyles.title}>Discover</Text>
             </View>
+            <SearchBarComponent placeholder="Location" showRecommendation={true}></SearchBarComponent>
             <View style={{marginTop: 24}}>
                 {TripList.map((element) => (
                     <TripLabel key={element.key} tripData={element} public={true}></TripLabel>

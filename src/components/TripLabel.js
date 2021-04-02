@@ -44,14 +44,13 @@ const TripLabel = (props) => {
                 <ImageBackground source={element.image} style={styles.tripLabelImage} imageStyle={{borderTopLeftRadius: 12, borderTopRightRadius: 12}}>
                     {
                         !publicTrip ? 
-                        null :
                         [
                             <View style={{flexDirection: "row", paddingLeft: 10, paddingTop: 128}}>
                             <Image source={require('../screens/assets/user1.png')} style={styles.tripUser} />
                             <Image source={require('../screens/assets/user1.png')} style={styles.tripUser} />
                             <Image source={require('../screens/assets/user1.png')} style={styles.tripUser} />
                             </View>
-                        ]
+                        ] : null
                     }
                 </ImageBackground>
                 <Text style={styles.tripLabelName}>{element.name}</Text>

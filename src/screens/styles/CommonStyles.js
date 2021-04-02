@@ -4,8 +4,8 @@ const commonStyles = StyleSheet.create({
         flexDirection: "row", 
         justifyContent: "space-between",
         marginTop: 68, 
-        marginLeft: 18,
-        marginRight: 19
+        marginLeft: 24,
+        marginRight: 23
     },
     title: {
         fontFamily: 'Helvetica Neue',
