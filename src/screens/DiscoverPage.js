@@ -20,7 +20,7 @@ const DiscoverPage = () => {
                 <Text style={commonStyles.title}>Discover</Text>
             </View>
             <SearchBarComponent placeholder="Location" showRecommendation={true}></SearchBarComponent>
-            <View style={{marginTop: 24}}>
+            <View>
                 {TripList.map((element) => (
                     <TripLabel key={element.key} tripData={element} public={true}></TripLabel>
                 ))}

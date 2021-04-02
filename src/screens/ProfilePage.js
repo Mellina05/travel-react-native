@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     border: {
-        borderColor: "#EAEAEA"
+        borderColor: "#EAEAEA",
+        borderBottomWidth: 1
     }
 });
 
@@ -48,22 +49,18 @@ const ProfilePage = () => {
                     <FontAwesome name={"edit"} size={25} />
                 </TouchableOpacity>
             </View>
-            <View style={{paddingBottom: 24, backgroundColor: "#FFFFFF", borderBottomColor: "#EAEAEA"}}>
+            <View style={{paddingBottom: 24, backgroundColor: "#FFFFFF", borderBottomColor: "#EAEAEA", borderBottomWidth: 1}}>
                 <Image source={user.profileImage} style={styles.profileImage}/>
                 <Text style={styles.username}>
                     {user.userName}
                 </Text>
             </View>
-            <View style={{backgroundColor: "F7F7F7", height: 12}}>
-            </View>
-            <View>
+            <View style={{marginTop: 12, borderColor: "#EAEAEA", borderTopWidth: 1, borderBottomWidth: 1}}>
                 {TripButtonList.map((element) => (
                     <ProfileButton data={element}></ProfileButton>
                 ))}
             </View>
-            <View style={{backgroundColor: "F7F7F7", height: 12}}>
-            </View>
-            <View>
+            <View style={{marginTop: 12, borderColor: "#EAEAEA", borderTopWidth: 1, borderBottomWidth: 1}}>
                 <ProfileButton data={settingButton}></ProfileButton>
             </View>
         </View>

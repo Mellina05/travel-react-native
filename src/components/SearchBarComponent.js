@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
 const searchList = ["Amsterdam", "Hawaii", "Paris", "Shanghai"];
@@ -79,7 +79,6 @@ const SearchBarComponent = (props) => {
             leftIconContainerStyle={styles.leftIcon}
             onChangeText={onChangeSearch}
             value={searchQuery}
-            lightTheme={true}
             />
             {
                 (props.showRecommendation && searchList.length > 0) ? 
@@ -90,9 +89,11 @@ const SearchBarComponent = (props) => {
                 props.showRecommendation ? 
                 <View style={styles.searchRecommendation}>
                     {searchList.map((element) => (
-                        <View style={styles.searchRecommendationElement}>
+                        <TouchableOpacity 
+                            onPress={()=>console.log(element)}
+                            style={styles.searchRecommendationElement}>
                             <Text style={styles.searchRecommendationText}>{element}</Text>
-                        </View>
+                        </TouchableOpacity >
                     ))}
                 </View> : null
             }

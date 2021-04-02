@@ -41,18 +41,18 @@ const renderIcon = (buttonKey) => {
 
 const ProfileButton = (props) => {
     const data = props.data;
-    return (
-        <View key={data.key} style={styles.buttonContainer}>
-            <View style={{flexDirection: "row"}}>
-                {renderIcon(data.key)}
-                <Text style={styles.text}>{data.name}</Text>
-            </View>      
+    return (   
             <TouchableOpacity 
                 style={styles.plusButton}
                 onPress={()=>console.log(data.name)}>
-                <FontAwesome name={"chevron-right"} size={22} color={"#777777"} />
+                <View key={data.key} style={styles.buttonContainer}>
+                    <View style={{flexDirection: "row"}}>
+                        {renderIcon(data.key)}
+                        <Text style={styles.text}>{data.name}</Text>
+                    </View>      
+                    <FontAwesome name={"chevron-right"} size={22} color={"#777777"} />
+                </View>
             </TouchableOpacity>
-        </View>
     );
 }
 
