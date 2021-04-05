@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
@@ -65,9 +65,17 @@ const styles = StyleSheet.create({
 const SearchBarComponent = (props) => {
     const placeholderInput = (props.placeholder) ? props.placeholder : "";
     const placeholderValue = "Search " + placeholderInput; 
-    const [searchQuery, setSearchQuery] = React.useState('');
 
-    const onChangeSearch = query => setSearchQuery(query);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const fillSearchBar = (value) => {
+        setSearchQuery(value);
+        console.log(value);
+    };
+    const onChangeSearch = (query) => {
+        setSearchQuery(query);
+        console.log(query);
+    };
     return (
         <View>
             <SearchBar
@@ -90,7 +98,7 @@ const SearchBarComponent = (props) => {
                 <View style={styles.searchRecommendation}>
                     {searchList.map((element) => (
                         <TouchableOpacity 
-                            onPress={()=>console.log(element)}
+                            onPress={()=>fillSearchBar(element)}
                             style={styles.searchRecommendationElement}>
                             <Text style={styles.searchRecommendationText}>{element}</Text>
                         </TouchableOpacity >

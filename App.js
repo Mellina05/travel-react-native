@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import PlanPage from './src/screens/PlanPage';
+import PlanStack from './src/screens/PlanStack';
 import ChatPage from './src/screens/ChatPage';
-import DiscoverPage from './src/screens/DiscoverPage';
-import ProfilePage from './src/screens/ProfilePage';
+import DiscoverStack from './src/screens/DiscoverStack';
+import ProfileStack from './src/screens/ProfileStack';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -27,7 +27,7 @@ const App = function() {
                       } else if (route.name === 'Profile') {
                         iconName = 'user';
                       }
-                      return <FontAwesome name={iconName} size={25} color={color} />;
+                      return <FontAwesome name={iconName} size={25}/>;
                     },
                   })}
                 tabBarOptions={{
@@ -35,10 +35,10 @@ const App = function() {
                     inactiveTintColor: '#999999',
                     showLabel: false
                 }}>
-                <BottomTab.Screen name="Plan" component={PlanPage} />
+                <BottomTab.Screen name="Plan" component={PlanStack} />
                 <BottomTab.Screen name="Chat" component={ChatPage} />
-                <BottomTab.Screen name="Discover" component={DiscoverPage} />
-                <BottomTab.Screen name="Profile" component={ProfilePage} />
+                <BottomTab.Screen name="Discover" component={DiscoverStack} />
+                <BottomTab.Screen name="Profile" component={ProfileStack} />
             </BottomTab.Navigator>
         </NavigationContainer> 
     ); 

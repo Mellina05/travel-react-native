@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -38,9 +39,15 @@ const styles = StyleSheet.create({
 const TripLabel = (props) => {
     const element = props.tripData;
     const publicTrip = props.public;
+    const navigation = useNavigation();
+
+    const onPressLabel = (name) => {
+        console.log(name);
+        navigation.navigate(props.screenName);
+    }
     return (
         <View key={element.key}>
-            <TouchableOpacity style={styles.tripLabel} onPress={()=>console.log(element.name)}>
+            <TouchableOpacity style={styles.tripLabel} onPress={()=>onPressLabel(element.name)}>
                 <ImageBackground source={element.image} style={styles.tripLabelImage} imageStyle={{borderTopLeftRadius: 12, borderTopRightRadius: 12}}>
                     {
                         !publicTrip ? 

@@ -33,7 +33,7 @@ const settingButton = {key: "settings", name: "Settings", navigateTo: "settings"
 /**
  * To view or modify user settings.
  */
-const ProfilePage = () => {
+const ProfilePage = ({navigation}) => {
     const user = {
         key: "user1",
         userName: "Natasha Lee",
@@ -45,7 +45,9 @@ const ProfilePage = () => {
             <View style={commonStyles.titleContainer}>
                 <Text style={commonStyles.title}>Profile</Text>
                 <TouchableOpacity 
-                    onPress={()=>console.log('Edit profile')}>
+                    onPress={()=>{
+                        navigation.navigate('Settings');
+                    }}>
                     <FontAwesome name={"edit"} size={25} />
                 </TouchableOpacity>
             </View>
@@ -57,11 +59,11 @@ const ProfilePage = () => {
             </View>
             <View style={{marginTop: 12, borderColor: "#EAEAEA", borderTopWidth: 1, borderBottomWidth: 1}}>
                 {TripButtonList.map((element) => (
-                    <ProfileButton data={element}></ProfileButton>
+                    <ProfileButton key={element.key} data={element} screenName={'TripsList'}></ProfileButton>
                 ))}
             </View>
             <View style={{marginTop: 12, borderColor: "#EAEAEA", borderTopWidth: 1, borderBottomWidth: 1}}>
-                <ProfileButton data={settingButton}></ProfileButton>
+                <ProfileButton key={settingButton.key} data={settingButton} screenName={settingButton.name}></ProfileButton>
             </View>
         </View>
     );

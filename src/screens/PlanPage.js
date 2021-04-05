@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import TripLabel from "../components/TripLabel";
 import commonStyles from "./styles/CommonStyles";
@@ -20,20 +20,22 @@ const TripList = [
 /**
  * To view plans with ownership.
  */
-const PlanPage = () => {
+const PlanPage = ({navigation}) => {
     return (
         <View style={commonStyles.page}>
             <View style={commonStyles.titleContainer}>
             <Text style={commonStyles.title}>My Trips</Text>
             <TouchableOpacity 
                 style={styles.plusButton}
-                onPress={()=>console.log('Create trip')}>
+                onPress={()=>{
+                    navigation.navigate('CreateTrip');
+                }}>
                 <FontAwesome name={"plus"} size={22} />
             </TouchableOpacity>
             </View>
             <View style={{marginTop: 24}}>
                 {TripList.map((element) => (
-                    <TripLabel key={element.key} tripData={element}></TripLabel>
+                    <TripLabel key={element.key} tripData={element} screenName={"TripDetail"}></TripLabel>
                 ))}
             </View>
       </View>

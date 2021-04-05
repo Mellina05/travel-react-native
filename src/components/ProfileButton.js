@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
@@ -41,10 +42,17 @@ const renderIcon = (buttonKey) => {
 
 const ProfileButton = (props) => {
     const data = props.data;
+    const navigation = useNavigation();
+
+    const onPressButton = (name) => {
+        console.log(name);
+        navigation.navigate(props.screenName);
+    }
+
     return (   
             <TouchableOpacity 
                 style={styles.plusButton}
-                onPress={()=>console.log(data.name)}>
+                onPress={()=>onPressButton(data.name)}>
                 <View key={data.key} style={styles.buttonContainer}>
                     <View style={{flexDirection: "row"}}>
                         {renderIcon(data.key)}

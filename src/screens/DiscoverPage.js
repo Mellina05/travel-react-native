@@ -8,7 +8,7 @@ import commonStyles from "./styles/CommonStyles";
   * To view public trips.
  */
 
-const DiscoverPage = () => {
+const DiscoverPage = ({navigation}) => {
     const TripList = [
         {key: "trip10", name: "Magic!!!!", location: "London(UK)", duration: 4, members: 3, startDate: "01/01/2021", endDate: "08/01/2021", image: require('./assets/trip10.png')},
         {key: "trip21", name: "Beeeach Time", location: "Hawaii(US)", duration: 10, members: 4, startDate: "06/03/2021", endDate: "07/03/2021", image: require('./assets/trip21.png')}
@@ -22,7 +22,7 @@ const DiscoverPage = () => {
             <SearchBarComponent placeholder="Location" showRecommendation={true}></SearchBarComponent>
             <View>
                 {TripList.map((element) => (
-                    <TripLabel key={element.key} tripData={element} public={true}></TripLabel>
+                    <TripLabel key={element.key} tripData={element} public={true} screenName={'TripDetail'}></TripLabel>
                 ))}
             </View>
         </View>
