@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, Modal, TextInput, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Dimensions, TouchableWithoutFeedbackBase} from 'react-native';
+import { View, Text, Modal, TextInput, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Dimensions} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import TripLabel from "../components/TripLabel";
 import commonStyles from "./styles/CommonStyles";
@@ -78,24 +78,30 @@ const PlanPage = () => {
                 }}
                 style={{height: 200, width: 340}}
             >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <View style={styles.modalText}>
-                        <Text style={styles.modalTitle}>Create My New Trip</Text>
-                        <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
-                            <FontAwesome name={"remove"} size={30} color={"#000000"} />
-                        </TouchableOpacity>
-                        </View>
-                        <View style={styles.modalTextInput}>
-                        <TextInput
-                            onChangeText={onChangeText}
-                            value={text}
-                            placeholder="Trip Name"
-                            style={styles.modalInput}
-                        />
-                        </View>
-                    </View>
-                </View> 
+                <TouchableOpacity 
+                    style={{flex:1}}
+                    onPressOut={() => setModalVisible(!modalVisible)}>
+                    <View style={styles.centeredView}>
+                        <TouchableWithoutFeedback>
+                            <View style={styles.modalView}>
+                                <View style={styles.modalText}>
+                                <Text style={styles.modalTitle}>Create My New Trip</Text>
+                                <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+                                    <FontAwesome name={"remove"} size={30} color={"#000000"} />
+                                </TouchableOpacity>
+                                </View>
+                                <View style={styles.modalTextInput}>
+                                <TextInput
+                                    onChangeText={onChangeText}
+                                    value={text}
+                                    placeholder="Trip Name"
+                                    style={styles.modalInput}
+                                />
+                                </View>
+                            </View>
+                        </TouchableWithoutFeedback>
+                    </View> 
+                </TouchableOpacity>
             </Modal>
             <View style={{marginTop: 24}}>
                 {TripList.map((element) => (
