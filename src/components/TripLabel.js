@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
     tripLabel: {
@@ -53,7 +54,19 @@ const TripLabel = (props) => {
                         ] : null
                     }
                 </ImageBackground>
-                <Text style={styles.tripLabelName}>{element.name}</Text>
+                <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+                    <Text style={styles.tripLabelName}>{element.name}</Text>
+                    {
+                        !publicTrip ?
+                        null:
+                        <View style={{flexDirection: "row", marginTop: 10}}>
+                            <TouchableOpacity>
+                                <FontAwesome name={"star-o"} size={20} color={"#999999"}/>
+                            </TouchableOpacity>
+                            <Text style={{color: "#999999", marginLeft: 6, marginRight: 15, fontSize: 16, fontFamily: "Helvetica Neue"}}>{element.stars}</Text>
+                        </View>
+                    }    
+                </View>
                 {
                     !publicTrip ? 
                     <Text style={styles.tripLabelText}>{element.location + " • " + element.startDate + " - " + element.endDate}</Text>
