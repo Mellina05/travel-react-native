@@ -11,6 +11,9 @@ const DiscoverStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
+                options={{
+                    headerShown: false
+                }}
                 name="Discover"
                 component={DiscoverPage}
             />

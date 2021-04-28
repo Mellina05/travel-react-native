@@ -12,6 +12,9 @@ const PlanStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
+                options={{
+                    headerShown: false
+                }}
                 name="Trips"
                 component={PlanPage}
             />

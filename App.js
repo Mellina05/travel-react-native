@@ -33,7 +33,8 @@ const App = function() {
                 tabBarOptions={{
                     activeTintColor: '#111111',
                     inactiveTintColor: '#999999',
-                    showLabel: false
+                    showLabel: true,
+                    style: {height:95}
                 }}>
                 <BottomTab.Screen name="Plan" component={PlanStack} />
                 <BottomTab.Screen name="Chat" component={ChatPage} />
