@@ -58,7 +58,7 @@ const TripList = [
  */
 const PlanPage = () => {
     const [modalVisible, setModalVisible] = useState(false);
-    const [text, onChangeText] = React.useState("Trip Name");
+    const [text, onChangeText] = useState("Trip Name");
     return (
         <View style={commonStyles.page}>
             <View style={commonStyles.titleContainer}>

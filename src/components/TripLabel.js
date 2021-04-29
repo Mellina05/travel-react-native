@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -39,6 +39,8 @@ const styles = StyleSheet.create({
 const TripLabel = (props) => {
     const element = props.tripData;
     const publicTrip = props.public;
+    const [isSaved, setSaved] = useState(false);
+    const [starColor, setStarColor] = useState("#999999");
     return (
         <View key={element.key}>
             <TouchableOpacity style={styles.tripLabel} onPress={()=>console.log(element.name)}>
@@ -60,10 +62,20 @@ const TripLabel = (props) => {
                         !publicTrip ?
                         null:
                         <View style={{flexDirection: "row", marginTop: 10}}>
-                            <TouchableOpacity>
-                                <FontAwesome name={"star-o"} size={20} color={"#999999"}/>
+                            <TouchableOpacity
+                                onPress = {() => {
+                                    if (isSaved) {
+                                        setStarColor("#F1D334");
+                                    } else {
+                                        setStarColor("#999999")
+                                    }
+                                    setSaved(!isSaved);
+                                    console.log("Saved? " + isSaved + ", color: " + starColor);
+                                }}
+                            >
+                                <FontAwesome name={"star-o"} size={20} color={starColor}/>
                             </TouchableOpacity>
-                            <Text style={{color: "#999999", marginLeft: 6, marginRight: 15, fontSize: 16, fontFamily: "Helvetica Neue"}}>{element.stars}</Text>
+                            <Text style={{color: starColor, marginLeft: 6, marginRight: 15, fontSize: 16, fontFamily: "Helvetica Neue"}}>{!isSaved ? element.stars + 1 : element.stars}</Text>
                         </View>
                     }    
                 </View>
