@@ -1,52 +1,9 @@
 import React, {useState} from 'react';
-import { View, Text, Modal, TextInput, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Dimensions} from 'react-native';
+import { View, Text, Modal, TextInput, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import TripLabel from "../components/TripLabel";
 import commonStyles from "./styles/CommonStyles";
-
-const windowWidth = Dimensions.get('window').width;
-
-const styles = StyleSheet.create({
-    plusButton: {
-        width: 22,
-        height: 21,
-        marginTop: 3
-    },
-    centeredView: {
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#999999",
-        opacity: 0.8
-    },
-    modalView: {
-        margin: 178,
-        paddingLeft: 18,
-        paddingRight: 18,
-        paddingTop: 18,
-        backgroundColor: "#FFFFFF",
-        width: windowWidth - 48,
-        height: 200
-    },
-    modalText: {
-        flexDirection: "row", 
-        justifyContent: "space-between"
-    },
-    modalTextInput: {
-        marginTop: 24
-    },
-    modalInput: {
-        fontFamily: 'Helvetica Neue',
-        fontWeight: '400',
-        fontSize: 16,
-        lineHeight: 20,
-    },
-    modalTitle: {
-        fontFamily: 'Helvetica Neue',
-        fontWeight: '500',
-        fontSize: 16,
-        lineHeight: 20,
-    }
-});
+import styles from "./styles/PlanPageStyles";
 
 const TripList = [
     {key: "trip1", name: "Girl's Trip", location: "Valleta(Malta)", startDate: "01/01/2021", endDate: "08/01/2021", image: require('./assets/trip1.jpeg')},
